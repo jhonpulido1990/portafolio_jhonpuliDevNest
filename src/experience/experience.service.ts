@@ -12,7 +12,7 @@ export class ExperienceService {
   ) {}
 
   async create(experienceDTO: ExperienceDto): Promise<Experience> {
-    const experience = this.experienceRepository.create(experienceDTO);
+    const experience = await this.experienceRepository.create(experienceDTO);
     return this.experienceRepository.save(experience);
   }
 
@@ -40,9 +40,7 @@ export class ExperienceService {
   }
 
   async delete(id: string): Promise<void> {
-    console.log('Deleting experience with ID:', id);
     const result = await this.experienceRepository.delete(id);
-    console.log('Delete result:', result);
     if (result.affected === 0) {
       throw new NotFoundException(`Experience with ID ${id} not found`);
     }
