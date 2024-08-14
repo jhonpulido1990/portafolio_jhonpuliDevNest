@@ -4,6 +4,8 @@ import { ProjectModule } from './project/project.module';
 import { BlogModule } from './blog/blog.module';
 import { ConfigModule } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { UsersModule } from './users/users.module';
+import { AuthModule } from './auth/auth.module';
 
 @Module({
   imports: [
@@ -24,6 +26,8 @@ import { TypeOrmModule } from '@nestjs/typeorm';
     ExperienceModule,
     ProjectModule,
     BlogModule,
+    UsersModule,
+    AuthModule,
   ],
   controllers: [],
   providers: [],
