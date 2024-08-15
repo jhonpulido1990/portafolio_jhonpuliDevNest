@@ -37,6 +37,14 @@ export class AuthService {
     return await this.usersService.generateToken(loginDto);
   }
 
+  async verifyToken(token: string) {
+    if (!token) {
+      throw new BadRequestException('No token provided');
+    }
+    const result = await this.usersService.verifyUser(token);
+    return result;
+  }
+
   async update(loginDto: LoginDto) {
     const user = await this.usersService.findOneByUsername(loginDto.username);
     if (!user) {

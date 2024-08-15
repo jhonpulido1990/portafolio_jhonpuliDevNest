@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { BadRequestException, Injectable } from '@nestjs/common';
 import { CreateUserDto } from './dto/create-user.dto';
 import { InjectRepository } from '@nestjs/typeorm';
 import { User } from './entities/user.entity';
@@ -39,6 +39,17 @@ export class UsersService {
     }
     return null;
   } */
+
+  async verifyUser(token: string) {
+    try {
+      // Verifica el token
+      const payload = this.jwtService.verify(token);
+      // Puedes devolver cualquier información que consideres relevante
+      return { valid: true, payload };
+    } catch (e) {
+      throw new BadRequestException('Invalid or expired token');
+    }
+  }
 
   async updatePassword(createUserDto: CreateUserDto): Promise<any> {
     const { username, password } = createUserDto;
