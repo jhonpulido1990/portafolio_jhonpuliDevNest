@@ -14,11 +14,7 @@ async function bootstrap() {
   );
 
   // Habilitar CORS con opciones predeterminadas
-  app.enableCors({
-    origin: '*', // Permite solicitudes desde cualquier origen. Es posible restringirlo a un dominio específico.
-    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS',
-    allowedHeaders: 'Content-Type, Authorization',
-  });
+  app.enableCors();
 
   await app.listen(3000);
 }
