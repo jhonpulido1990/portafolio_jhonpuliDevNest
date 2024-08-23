@@ -11,15 +11,15 @@ export class MailService {
       port: 587,
       secure: false,
       auth: {
-        user: 'jjpulio8@misena.edu.co',
-        pass: 'Jhonpulido1990;',
+        user: 'pulidojj174@gmail.com',
+        pass: 'rble iwfs ziqp rqpf',
       },
     });
   }
 
   async sendMail(to: string, subject: string, text: string) {
     const mailOptions = {
-      from: 'jjpulio8@misena.edu.co',
+      from: 'pulidojj174@gmail.com',
       to,
       subject,
       text,
